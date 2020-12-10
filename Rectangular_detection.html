@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: #ff0370;
+				position: absolute;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background-color: aqua;
+				margin-top: 100px;
+			}
+ 
+		</style>
+	</head>
+	<body>
+			<div id="div1"></div>
+			<div id="div2"></div>
+	</body>
+	
+
+	
+	<script type="text/javascript">
+		
+		window.onload = function(){
+			// document.addEventListener('keyup',this.handler);
+			document.onkeydown =function(e){
+				var speed = 10;
+				 switch (e.keyCode) {
+				         case 37:
+				           div1.style.left = div1.offsetLeft - speed + 'px';
+				           break;
+				         case 38:
+							div1.style.top = div1.offsetTop - speed + 'px';
+				           // this.offsetWidth += 1;
+				           break;
+				         case 39:
+							div1.style.left = div1.offsetLeft + speed + 'px';
+				           // this.offsetHeight -= 1;
+							break;
+				         case 40:
+							div1.style.top = div1.offsetTop + speed + 'px';
+				           // this.offsetHeight -= 1;
+							break;
+				         default:
+				           break;
+				
+				       }
+			}
+			var react1 = document.getElementById('div1');
+			var react2= document.getElementById('div2');
+			console.log(react1,react2)
+			console.log(react1.offsetLeft+react1.offsetWidth)
+			console.log(react2.offsetLeft+react2.offsetWidth)
+			if(react1.offsetLeft<react2.offsetLeft+react2.offsetWidth&&
+			   react1.offsetLeft+react1.offsetWidth>react2.offsetLeft&&
+			   react1.offsetTop<react2.offsetTop+react2.offsetHeight&&
+			   react1.offsetHeight+react1.offsetTop>react2.offsetTop
+			){
+			 console.log('碰撞成功')
+			}else {
+				console.log('未碰撞')
+			}
+		}
+	</script>
+	
+</html>
